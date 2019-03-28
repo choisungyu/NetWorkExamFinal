@@ -17,7 +17,6 @@ public class MainActivity extends AppCompatActivity implements UserListFragment.
         setContentView(R.layout.activity_main);
 
         UserListFragment userListFragment = new UserListFragment();
-
         if (savedInstanceState == null) {
 
             getSupportFragmentManager().beginTransaction()
@@ -37,7 +36,6 @@ public class MainActivity extends AppCompatActivity implements UserListFragment.
 
     @Override
     public void onIdClick(User user) {
-        // TODO: 2019-03-28 id클릭했을때 그 id에 대한 image나오게 해야 함
         PhotoFragment fragment = PhotoFragment.newInstance(user.getId());
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, fragment)
