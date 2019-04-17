@@ -11,10 +11,14 @@ import com.csg.networkexamfinal.ui.UserListFragment;
 
 public class MainActivity extends AppCompatActivity implements UserListFragment.OnUserClickListener, TodoListFragment.OnTodoClickListener {
 
+
+    private User user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         UserListFragment userListFragment = new UserListFragment();
         if (savedInstanceState == null) {
@@ -25,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements UserListFragment.
         }
     }
 
+
     @Override
     public void onUserClick(User user) {
         TodoListFragment fragment = TodoListFragment.newInstance(user.getId());
@@ -32,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements UserListFragment.
                 .replace(R.id.container, fragment)
                 .addToBackStack(null)
                 .commit();
+
     }
 
     @Override
